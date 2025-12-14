@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "name": "Vegetables"
+    },
+    {
+        "id": 2,
+        "name": "Dairy"
+    },
+    {
+        "id": 3,
+        "name": "Beverages"
+    },
+    {
+        "id": 4,
+        "name": "Meat"
+    },
+    {
+        "id": 5,
+        "name": "Fruits"
+    },
+    {
+        "id": 6,
+        "name": "Electronics"
+    },
+        {
+        "id": 7,
+        "name": "Hygiene"
+    }
+]
