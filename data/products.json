@@ -1,42 +1,38 @@
 [
     {
-        "id": 1,
         "name": "Milk",
         "note": "fat-free",
         "quantity": 3,
         "isBought": false,
-        "category_id": 2
+        "category": "Dairy"
     },
     {
-        "id": 2,
         "name": "Carrots",
         "note": "",
         "quantity": 5,
         "isBought": false,
-        "category_id": 1
+        "category": "Fruits"
     },
     {
-        "id": 3,
         "name": "Apples",
         "note": "",
         "quantity": 6,
         "isBought": true,
-        "category_id": 5
+        "category": "Vegetables"
     },
     {
-        "id": 4,
         "name": "Shampoo",
         "note": "",
         "quantity": 1,
         "isBought": false,
-        "category_id": 7
+        "category": "Hygiene"
     },
     {
-        "id": 5,
+
         "name": "Cola",
         "note": "1.5L bottle",
         "quantity": 2,
         "isBought": true,
-        "category_id": 3
+        "category": "Beverages"
     }
 ]
