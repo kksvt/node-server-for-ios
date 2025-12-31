@@ -67,7 +67,7 @@ app.post('/register', (req, res) => {
     return res.status(201).json({token: token});
 });
 
-app.get('/login', (req, res) => {
+app.post('/login', (req, res) => {
     if (!req.body) {
         return res.status(400).json({message: 'No body'});
     }
