@@ -118,7 +118,7 @@ app.get('/auth/categories', (req, res) => {
 
 //just replace all the products, whatever
 app.put('/auth/products', (req, res) => {
-    if (!req.body) {
+    if (!req.body || !req.body.products) {
         return res.status(400).json({message: 'Invalid data'});
     }
 
@@ -129,7 +129,7 @@ app.put('/auth/products', (req, res) => {
 
 //same with categories
 app.put('/auth/categories', (req, res) => {
-    if (!req.body) {
+    if (!req.body || !req.body.categories) {
         return res.status(400).json({message: 'Invalid data'});
     }
 
