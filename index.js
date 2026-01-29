@@ -90,7 +90,7 @@ app.post('/login', (req, res) => {
 
 app.delete('/test/wipe', (_, res) => {
     tmp_db.clear();
-    return res.status(201).jsoin({message: 'Database cleared'});
+    return res.status(201).json({message: 'Database cleared'});
 });
 
 app.use('/auth', (req, res, next) => {
