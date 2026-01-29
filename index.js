@@ -131,9 +131,10 @@ app.put('/auth/products', (req, res) => {
     for (let p of new_products) {
         const match = req.user.products.filter((old_p) => { old_p.name === p.name });
         if (match.length < 1) {
+            console.log(`Couldnt match product ${p.name} to any old product.`);
             continue;
         }
-        if (match.length.quantity != p.quantity) {
+        if (match.length.quantity !== p.quantity) {
             console.log(`Product ${p.name} is no longer accounted for, because the quantity has changed.`);
             p.isPaid = false;
         }
