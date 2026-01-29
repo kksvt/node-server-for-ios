@@ -88,6 +88,11 @@ app.post('/login', (req, res) => {
     return res.status(201).json({token: token, products: user.products, categories: user.categories});
 });
 
+app.post('/test/wipe', (_, res) => {
+    tmp_db.clear();
+    return res.status(201).jsoin({message: 'Database cleared'});
+});
+
 app.use('/auth', (req, res, next) => {
     if (!req.headers || !req.headers.authorization) {
         return res.status(401).json({message: 'You are not logged in.'});
