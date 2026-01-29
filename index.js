@@ -143,7 +143,7 @@ app.put('/auth/categories', (req, res) => {
 });
 
 app.get('/auth/pay', (req, res) => {
- let total = 0;
+    let total = 0;
     let paid = 0;
     let remaining = 0;
 
@@ -154,18 +154,8 @@ app.get('/auth/pay', (req, res) => {
         total += price;
 
         if (p.isPaid) {
-            continue;
-        }
-
-        if (price <= 0) {
-            p.isPaid = true; //i guess?
-            continue;
-        }
-
-        if (amount >= price) {
-            p.isPaid = true;
-            amount -= price;
             paid += price;
+            continue;
         }
     }
 
