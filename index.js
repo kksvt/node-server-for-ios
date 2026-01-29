@@ -129,7 +129,7 @@ app.put('/auth/products', (req, res) => {
     let new_products = json_deep_copy(req.body.products)
 
     for (let p of new_products) {
-        const match = req.user.products.filter((old_p) => { old_p.name === p.name });
+        const match = req.user.products.filter((old_p) => { return old_p.name === p.name; });
         if (match.length < 1) {
             console.log(`Couldnt match product ${p.name} to any old product.`);
             continue;
