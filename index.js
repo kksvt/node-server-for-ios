@@ -164,6 +164,10 @@ app.get('/auth/pay', (req, res) => {
         const quantity = Number(p.quantity) || 0;
         const price = (Number(p.price) || 0) * quantity;
 
+        if (!p.isBought) {
+            continue;
+        }
+
         total += price;
 
         if (p.isPaid) {
@@ -184,7 +188,7 @@ app.post('/auth/pay', (req, res) => {
         return res.status(400).json({message: 'Invalid data'});
     }
 
-    const amount = Number(req.body.amount);
+    let amount = Number(req.body.amount) || 0;
     const card = req.body.card_id;
 
     if (amount <= 0) {
@@ -198,6 +202,10 @@ app.post('/auth/pay', (req, res) => {
     for (const p of req.user.products) {
         const quantity = Number(p.quantity) || 0;
         const price = (Number(p.price) || 0) * quantity;
+
+        if (!p.isBought) {
+            continue;
+        }
 
         total += price;
 
