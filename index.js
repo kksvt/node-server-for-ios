@@ -88,7 +88,7 @@ app.post('/login', (req, res) => {
     return res.status(201).json({token: token, products: user.products, categories: user.categories});
 });
 
-app.post('/test/wipe', (_, res) => {
+app.delete('/test/wipe', (_, res) => {
     tmp_db.clear();
     return res.status(201).jsoin({message: 'Database cleared'});
 });
