@@ -138,6 +138,48 @@ app.put('/auth/categories', (req, res) => {
     return res.status(201).send({message: 'ok'});
 });
 
+app.post('/auth/pay/:name', (req, res) => {
+    if (!req.body || !req.body.amount || !req.body.card_id) {
+        return res.status(400).json({message: 'Invalid data'});
+    }
+
+    const amount = Number(req.body.amount);
+    const card = req.body.card_id;
+
+    let total = 0;
+    let paid = 0;
+    let remaining = 0;
+
+    for (const p of req.user.products) {
+        const quantity = Number(p.quantity) || 0;
+        const price = (Number(p.price) || 0) * quantity;
+
+        total += price;
+
+        if (p.isPaid) {
+            continue;
+        }
+
+        if (price <= 0) {
+            p.isPaid = true; //i guess?
+            continue;
+        }
+
+        if (amount >= price) {
+            p.isPaid = true;
+            amount -= price;
+            paid += price;
+        }
+    }
+
+    remaining = total - paid;
+    return res.status(200).json({
+        message: "ok", 
+        products: req.user.products, 
+        total, remaining, paid
+    });
+});
+
 const httpServer = http.createServer(app);
 
 httpServer.listen(process.env.APP_PORT);

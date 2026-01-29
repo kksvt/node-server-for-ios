@@ -4,28 +4,36 @@
         "note": "fat-free",
         "quantity": 3,
         "isBought": false,
-        "category": "Dairy"
+        "category": "Dairy",
+        "isPaid": false,
+        "price": 5.00
     },
     {
         "name": "Carrots",
         "note": "",
         "quantity": 5,
         "isBought": false,
-        "category": "Fruits"
+        "category": "Vegetables",
+        "isPaid": false,
+        "price": 2.00
     },
     {
         "name": "Apples",
         "note": "",
         "quantity": 6,
         "isBought": true,
-        "category": "Vegetables"
+        "category": "Fruits",
+        "isPaid": false,
+        "price": 3.00
     },
     {
         "name": "Shampoo",
         "note": "",
         "quantity": 1,
         "isBought": false,
-        "category": "Hygiene"
+        "category": "Hygiene",
+        "isPaid": false,
+        "price": 8.00
     },
     {
 
@@ -33,6 +41,8 @@
         "note": "1.5L bottle",
         "quantity": 2,
         "isBought": true,
-        "category": "Beverages"
+        "category": "Beverages",
+        "isPaid": false,
+        "price": 3.00
     }
 ]
