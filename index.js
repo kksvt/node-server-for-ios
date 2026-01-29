@@ -168,7 +168,6 @@ app.post('/auth/pay', (req, res) => {
     remaining = total - paid;
     return res.status(200).json({
         message: "ok", 
-        products: req.user.products, 
         total, remaining, paid
     });
 });
