@@ -126,7 +126,20 @@ app.put('/auth/products', (req, res) => {
         return res.status(400).json({message: 'Invalid data'});
     }
 
-    req.user.products = json_deep_copy(req.body.products);
+    let new_products = json_deep_copy(req.body.products)
+
+    for (let p of new_products) {
+        const match = req.user.products.filter((old_p) => { old_p.name === p.name });
+        if (match.length < 1) {
+            continue;
+        }
+        if (match.length.quantity != p.quantity) {
+            console.log(`Product ${p.name} is no longer accounted for, because the quantity has changed.`);
+            p.isPaid = false;
+        }
+    }
+    
+    req.user.products = new_products;
     print_debug_info(req.user);
     return res.status(201).send({message: 'ok'});
 });
