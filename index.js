@@ -99,7 +99,7 @@ app.use('/auth', (req, res, next) => {
             return res.status(403).json({message: 'Failed to authenticate'});
         }
         req.user = tmp_db.get(user.email);
-        if (req.user) {
+        if (!req.user) {
             //eh, this is possible
             return res.status(403).json({message: 'Invalid user'});
         }
