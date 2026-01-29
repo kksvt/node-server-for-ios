@@ -134,7 +134,7 @@ app.put('/auth/products', (req, res) => {
             console.log(`Couldnt match product ${p.name} to any old product.`);
             continue;
         }
-        if (match.length.quantity !== p.quantity) {
+        if (match[0].quantity !== p.quantity) {
             console.log(`Product ${p.name} is no longer accounted for, because the quantity has changed.`);
             p.isPaid = false;
         }
