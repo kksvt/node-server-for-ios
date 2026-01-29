@@ -142,7 +142,7 @@ app.put('/auth/categories', (req, res) => {
     return res.status(201).send({message: 'ok'});
 });
 
-app.post('/auth/pay', (req, res) => {
+app.get('/auth/pay', (req, res) => {
  let total = 0;
     let paid = 0;
     let remaining = 0;
